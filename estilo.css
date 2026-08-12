@@ -1,4 +1,18 @@
-/* Configurações globais */
+/* ==========================================
+   1. VARIÁVEIS & RESET GLOBAL
+   ========================================== */
+:root {
+  --bg-dark: #0b0c0e;
+  --bg-card: #1c1d22;
+  --bg-header: #ffffff;
+  --text-white: #ffffff;
+  --text-dark: #111111;
+  --text-blue: #38bdf8;
+  --text-blue-light: #7dd3fc;
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,40 +20,174 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: var(--font-sans);
+  background-color: var(--bg-dark);
+  color: var(--text-white);
   min-height: 100vh;
 }
 
-.container {
-  text-align: center;
-  background: #fff;
-  padding: 2rem;
+/* ==========================================
+   2. CABEÇALHO (HEADER)
+   ========================================== */
+.header {
+  background-color: var(--bg-header);
+  color: var(--text-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-dark);
+  text-decoration: none;
+}
+
+.logo-icon {
+  background-color: var(--text-dark);
+  color: var(--text-white);
+  width: 36px;
+  height: 36px;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-h1 {
-  margin-bottom: 1rem;
-  color: #2c3e50;
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
-button {
-  margin-top: 1.5rem;
-  padding: 0.8rem 1.5rem;
+.nav-link {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.btn-carrinho {
+  background-color: var(--text-dark);
+  color: var(--text-white);
   border: none;
-  background-color: #3498db;
-  color: white;
-  font-size: 1rem;
-  border-radius: 4px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   cursor: pointer;
-  transition: background-color 0.2s;
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
-button:hover {
-  background-color: #2980b9;
+/* ==========================================
+   3. SEÇÃO PRINCIPAL (HERO)
+   ========================================== */
+.hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4rem;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.tag-categoria {
+  color: var(--text-blue);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.titulo-principal {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 3.8rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 2rem;
+}
+
+.descricao-principal {
+  color: var(--text-blue-light);
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   4. CARD DE NAVEGAÇÃO POR TECLADO
+   ========================================== */
+.card-teclado {
+  background-color: var(--bg-card);
+  padding: 2rem;
+  border-radius: 16px;
+  min-width: 320px;
+}
+
+.card-titulo {
+  color: var(--text-blue);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.lista-teclado {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.item-teclado {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: #e2e8f0;
+}
+
+kbd {
+  background-color: var(--text-white);
+  color: var(--text-dark);
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  line-height: 1;
+}
+
+/* ==========================================
+   5. RESPONSIVIDADE
+   ========================================== */
+@media (max-width: 900px) {
+  .header {
+    padding: 1rem 1.5rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .titulo-principal {
+    font-size: 2.8rem;
+  }
+
+  .card-teclado {
+    width: 100%;
+  }
 }

@@ -3,15 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu Projeto</title>
+  <title>Acesse - Comércio Digital para Todos</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
 
-  <main class="container">
-    <h1>Olá, Mundo!</h1>
-    <p>Este é um projeto simples com arquivos separados.</p>
-    <button id="meuBotao">Clique aqui</button>
+  <header class="navbar">
+    <div class="logo">
+      <div class="logo-icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+      </div>
+      <span>Acesse</span>
+    </div>
+
+    <nav>
+      <a href="#inicio" class="nav-link">Início</a>
+      <button class="btn-carrinho" id="btnCarrinho">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        Carrinho
+      </button>
+    </nav>
+  </header>
+
+  <main class="hero-section">
+    <div class="hero-container">
+      
+      <div class="hero-content">
+        <p class="tagline">PROJETO DE ACESSIBILIDADE — PERSONA AFONSO</p>
+        <h1 class="titulo">Comércio digital<br><em>para todos.</em></h1>
+        <p class="descricao">
+          Este protótipo demonstra boas práticas de acessibilidade — foco de teclado gerenciado, anúncios de erro via ARIA e descrições de imagem ricas — para usuários que navegam com leitores de tela.
+        </p>
+      </div>
+
+      <aside class="card-teclado" aria-label="Guia de navegação por teclado">
+        <h2>NAVEGAÇÃO POR TECLADO</h2>
+        
+        <ul class="lista-atalhos">
+          <li>
+            <kbd>Tab</kbd>
+            <span>Próximo elemento</span>
+          </li>
+          <li>
+            <kbd>Shift+Tab</kbd>
+            <span>Elemento anterior</span>
+          </li>
+          <li>
+            <kbd>Enter</kbd>
+            <span>Ativar botão / link</span>
+          </li>
+          <li>
+            <kbd>Esc</kbd>
+            <span>Fechar modal</span>
+          </li>
+          <li>
+            <kbd>Space</kbd>
+            <span>Marcar checkbox</span>
+          </li>
+        </ul>
+      </aside>
+
+    </div>
   </main>
 
   <script src="main.js"></script>
