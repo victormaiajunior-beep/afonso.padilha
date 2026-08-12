@@ -1,62 +1,41 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Elementos da interface
-  const btnCarrinho = document.querySelector('.btn-carrinho');
-  const modalCarrinho = document.getElementById('modal-carrinho');
-
-  // ==========================================
-  // 2. ANÚNCIOS VIA ARIA (Para leitores de tela)
-  // ==========================================
-  /**
-   * Cria uma região 'aria-live' dinamicamente para anunciar 
-   * mudanças de estado ou erros sem mover o foco do usuário.
-   */
-  function anunciarAcessivel(mensagem) {
-    let liveRegion = document.getElementById('aria-announcer');
     
-    if (!liveRegion) {
-      liveRegion = document.createElement('div');
-      liveRegion.id = 'aria-announcer';
-      liveRegion.setAttribute('aria-live', 'polite');
-      liveRegion.setAttribute('aria-atomic', 'true');
-      
-      // Estilo para esconder visualmente, mas manter legível para leitores de tela
-      Object.assign(liveRegion.style, {
-        position: 'absolute',
-        width: '1px',
-        height: '1px',
-        padding: '0',
-        margin: '-1px',
-        overflow: 'hidden',
-        clip: 'rect(0, 0, 0, 0)',
-        whiteSpace: 'nowrap',
-        border: '0'
-      });
+    const navBox = document.querySelector('.keyboard-nav-box');
+    // Seleciona todos os elementos focáveis dentro da caixa de navegação (teclas e links)
+    const focusableElements = navBox.querySelectorAll('.key, dd, dt, a');
+    
+    // Se não houver elementos para focar, sai da função
+    if (focusableElements.length === 0) return;
 
-      document.body.appendChild(liveRegion);
-    }
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
 
-    liveRegion.textContent = ''; // Limpa antes de atualizar
-    setTimeout(() => {
-      liveRegion.textContent = mensagem;
-    }, 100);
-  }
-
-  // ==========================================
-  // 3. GERENCIAMENTO DE INTERAÇÕES E FOCO
-  // ==========================================
-  if (btnCarrinho) {
-    // Configura o atributo ARIA inicial
-    btnCarrinho.setAttribute('aria-expanded', 'false');
-
-    btnCarrinho.addEventListener('click', () => {
-      const estaAberto = btnCarrinho.getAttribute('aria-expanded') === 'true';
-
-      if (!estaAberto) {
-        btnCarrinho.setAttribute('aria-expanded', 'true');
-        anunciarAcessivel('Carrinho aberto.');
-        
-        // Se existir um modal, você pode mover o foco para dentro dele aqui:
-        if (modalCarrinho) {
-          modalCarrinho.classList.add('ativo');
-          modalCarrinho.focus();
+    // Adiciona um ouvinte de evento para capturar o pressionamento de teclas dentro da caixa
+    navBox.addEventListener('keydown', (e) => {
+        // Verifica se a tecla pressionada foi 'Tab'
+        if (e.key === 'Tab') {
+            
+            // Se Shift + Tab for pressionado (navegação reversa)
+            if (e.shiftKey) {
+                if (document.activeElement === firstElement) {
+                    e.preventDefault(); // Impede o foco de sair da caixa
+                    lastElement.focus(); // Volta para o último elemento
+                }
+            } 
+            // Se apenas Tab for pressionado
+            else {
+                if (document.activeElement === lastElement) {
+                    e.preventDefault(); // Impede o foco de sair da caixa
+                    firstElement.focus(); // Vai para o primeiro elemento
+                }
+            }
         }
+    });
+
+    // Exemplo para demonstrar a interação com o botão "Carrinho"
+    const btnCart = document.querySelector('.btn-cart');
+    btnCart.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('Você entrou no carrinho de compras!');
+    });
+});
