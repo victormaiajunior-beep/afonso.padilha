@@ -39,3 +39,34 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Você entrou no carrinho de compras!');
     });
 });
+/* ... Código anterior do Focus Trap ... */
+
+// --- INTERAÇÃO COM OS BOTÕES DE PRODUTO ---
+
+// Seleciona todos os botões "Ver produto"
+const productButtons = document.querySelectorAll('.btn-product-view');
+
+productButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        // Pega o nome do produto que está dentro do mesmo card
+        const parentCard = e.target.closest('.product-card');
+        const productName = parentCard.querySelector('.product-name').innerText;
+        
+        // Mensagem de feedback (Simulação de carrinho)
+        const message = `Produto "${productName}" adicionado ao carrinho! (Simulação)`;
+        
+        // Exibe o alerta. O navegador naturalmente foca no alerta, o que é ótimo para acessibilidade.
+        alert(message);
+    });
+});
+
+// --- FOCO NO PRIMEIRO ELEMENTO PARA LEITORES DE TELA (Boas Práticas) ---
+// Ao carregar a página, coloca o foco no título principal, para que o leitor de tela
+// anuncie a página imediatamente.
+const mainTitle = document.querySelector('.hero-title');
+if (mainTitle) {
+    // Adiciona tabindex="-1" para permitir foco em elemento não interativo, 
+    // mas o remove do fluxo de Tab normal.
+    mainTitle.setAttribute('tabindex', '-1');
+    mainTitle.focus(); 
+}
