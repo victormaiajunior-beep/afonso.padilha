@@ -70,20 +70,3 @@ if (mainTitle) {
     mainTitle.setAttribute('tabindex', '-1');
     mainTitle.focus(); 
 }
-document.addEventListener('DOMContentLoaded', () => {
-  const cartBadge = document.getElementById('cartCount');
-  const addToCartBtn = document.getElementById('addToCartBtn');
-
-  let itemCount = 1;
-
-  addToCartBtn.addEventListener('click', () => {
-    itemCount++;
-    cartBadge.textContent = itemCount;
-    
-    // Animação simples no contador
-    cartBadge.style.transform = 'scale(1.3)';
-    setTimeout(() => {
-      cartBadge.style.transform = 'scale(1)';
-    }, 200);
-  });
-});
