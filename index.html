@@ -177,3 +177,68 @@
     <script src="script.js"></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesse - Comércio Digital para todos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon"><span>&#9825;</span></div>
+            <span class="logo-text">Acesse</span>
+        </div>
+        <nav class="nav-container">
+            <a href="#" class="nav-link">Início</a>
+            <a href="#" class="btn-cart" id="btnCarrinho">
+                <span class="cart-icon">&#128717;</span> Carrinho
+            </a>
+        </nav>
+    </header>
+
+    <main class="hero-section">
+        <div class="hero-content">
+            <p class="hero-subtitle">PROJETO DE ACESSIBILIDADE — PERSONA AFONSO</p>
+            <h1 class="hero-title">Comércio digital<br>para todos.</h1>
+            <p class="hero-description">
+                Este protótipo demonstra boas práticas de acessibilidade — foco de teclado gerenciado, anúncios de erro via ARIA e descrições de imagem ricas — para usuários que navegam com leitores de tela.
+            </p>
+        </div>
+
+        <div class="hero-aside">
+            <div class="keyboard-nav-box" aria-label="Painel de atalhos de teclado">
+                <h3 class="nav-box-title">NAVEGAÇÃO POR TECLADO</h3>
+                <dl class="keyboard-list">
+                    <div class="keyboard-item">
+                        <!-- ADICIONADO TABINDEX E ROLE -->
+                        <dt class="key" tabindex="0" role="button">Tab</dt>
+                        <dd>Próximo elemento</dd>
+                    </div>
+                    <div class="keyboard-item">
+                        <dt class="key" tabindex="0" role="button">Shift+Tab</dt>
+                        <dd>Elemento anterior</dd>
+                    </div>
+                    <div class="keyboard-item">
+                        <dt class="key" tabindex="0" role="button">Enter</dt>
+                        <dd>Ativar botão / link</dd>
+                    </div>
+                    <div class="keyboard-item">
+                        <dt class="key" tabindex="0" role="button">Esc</dt>
+                        <dd>Fechar modal</dd>
+                    </div>
+                    <div class="keyboard-item">
+                        <dt class="key" tabindex="0" role="button">Space</dt>
+                        <dd>Marcar checkbox</dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
