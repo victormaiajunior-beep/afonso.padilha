@@ -156,3 +156,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const addToCartBtn = document.getElementById('addToCartBtn');
+    const cartBtn = document.getElementById('btnCarrinho');
+
+    // Função para adicionar ao carrinho
+    function addToCart() {
+        // Simula uma notificação de carrinho
+        const productName = document.querySelector('.product-main-title').innerText;
+        alert(`✅ Produto "${productName}" adicionado ao carrinho com sucesso!`);
+        
+        // Aqui você pode adicionar lógica real (ex: atualizar um contador no header)
+    }
+
+    // Evento de clique no botão principal
+    if (addToCartBtn) {
+        addToCartBtn.addEventListener('click', addToCart);
+    }
+
+    // Evento de clique no botão do Header
+    if (cartBtn) {
+        cartBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('🚀 Você abriu o carrinho de compras!');
+        });
+    }
+
+    // ==========================================
+    // (OPCIONAL) Lógica para o Menu de Atalhos
+    // Se você já tiver o menu de atalhos implementado na página inicial,
+    // cole aqui o código de "Focus Trap" (Loop de Tab) que eu te passei anteriormente.
+    // ==========================================
+});

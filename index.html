@@ -242,3 +242,129 @@
     <script src="script.js"></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesse - Detalhes do Produto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER (Igual ao seu) -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon"><span>&#9825;</span></div>
+            <span class="logo-text">Acesse</span>
+        </div>
+        <nav class="nav-container">
+            <a href="#" class="nav-link">Início</a>
+            <button class="btn-cart" id="btnCarrinho">
+                <span class="cart-icon">&#128717;</span> Carrinho
+            </button>
+        </nav>
+    </header>
+
+    <main class="product-page-container">
+        
+        <!-- SEÇÃO DO PRODUTO -->
+        <section class="product-details-section" aria-label="Detalhes do Tênis Nike Air Max 270">
+            <div class="product-layout">
+                
+                <!-- Coluna Esquerda: Imagem -->
+                <div class="product-image-col">
+                    <div class="product-image-wrapper">
+                        <!-- Substitua a URL pela imagem real do tênis -->
+                        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1000&auto=format&fit=crop" alt="Tênis Nike Air Max 270 fotografiado de perfil sobre fundo vermelho. Cabedal em malha respirável vermelha com sobreposições em sintético, logotipo Swoosh em branco na lateral, câmara de ar laranja visível no calcanhar.">
+                    </div>
+
+                    <!-- Caixa Azul do Alt Text -->
+                    <div class="accessibility-alt-box" role="note" aria-label="Descrição da imagem para leitores de tela">
+                        <p><strong>Alt text (anunciado pelo leitor de tela):</strong> “Tênis Nike Air Max 270 fotografado de perfil sobre fundo vermelho. Cabedal em malha respirável vermelha com sobreposições em couro sintético, logotipo Swoosh em branco na lateral, câmara de ar Air Max visível na entressola traseira em laranja translúcido, sola externa em borracha preta com padrão de waffle.”</p>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Informações e Botão -->
+                <div class="product-info-col">
+                    <span class="product-category">MODA</span>
+                    <h1 class="product-main-title">Tênis Nike Air Max 270</h1>
+                    <p class="product-main-desc">Câmara Air Max 270, cabedal em malha respirável, amortecimento máximo.</p>
+                    
+                    <div class="product-price-big">R$ 799,00</div>
+
+                    <ul class="product-features-list">
+                        <li>Maior câmara Air Max já criada para uso lifestyle</li>
+                        <li>Cabedal em malha que adapta ao formato do pé</li>
+                        <li>Colarinho macio sem costura para conforto no tornozelo</li>
+                        <li>Design inspirado no Air Max 93 e Air Max 180</li>
+                    </ul>
+
+                    <button class="btn-add-to-cart" id="addToCartBtn">
+                        <span class="cart-icon">&#128717;</span> Adicionar ao carrinho
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE ESPECIFICAÇÕES TÉCNICAS (Tabela) -->
+        <section class="specs-section" aria-labelledby="specs-title">
+            <h2 id="specs-title" class="section-title serif-title">Especificações técnicas</h2>
+
+            <!-- Caixa Azul explicando a Tabela -->
+            <div class="accessibility-table-note" role="note">
+                <span class="info-icon">&#8505;</span>
+                <p>Tabela em HTML semântico com <code>&lt;th scope="row"&gt;</code>, lida pelo leitor de tela como "Coluna: valor" para cada linha.</p>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="specs-table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">MATERIAL DO CABEDAL</th>
+                            <td>Malha respirável com sobreposições sintéticas</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ENTRESSOLA</th>
+                            <td>Espuma Nike Air com câmara Air Max 270 no calcanhar</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">SOLA</th>
+                            <td>Borracha durável com padrão de waffle</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">DROP</th>
+                            <td>11 mm (talão 33 mm / antepé 22 mm)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">PESO</th>
+                            <td>298 g (tamanho 42 BR)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">NUMERAÇÃO</th>
+                            <td>35 BR a 49 BR</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">CORES</th>
+                            <td>Preto/Laranja, Branco/Cinza, Triple Black</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">CERTIFICAÇÃO</th>
+                            <td>Nike Move to Zero — produto sustentável</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <p>Protótipo educacional de acessibilidade — Persona <strong>Afonso dos Santos</strong>, Analista de Acessibilidade Digital.</p>
+        <p class="footer-sub">WCAG 2.1 AA &bull; ARIA 1.2 &bull; Navegação por teclado &bull; Leitores de tela</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

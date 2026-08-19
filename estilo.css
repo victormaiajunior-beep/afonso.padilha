@@ -435,3 +435,151 @@ body { background-color: #0b0b0b; color: #ffffff; min-height: 100vh; }
     background-color: #e6f0ff;
 }
 .keyboard-item dd { color: #cccccc; margin: 0; }
+/* --- RESET E HEADER (Mantido do seu projeto) --- */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+body { background-color: #f5f2eb; color: #1a1a1a; min-height: 100vh; display: flex; flex-direction: column; }
+
+.header { background-color: #ffffff; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0e0e0; }
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo-icon { background-color: #0b0b0b; color: #ffffff; width: 40px; height: 40px; border-radius: 6px; display: flex; justify-content: center; align-items: center; }
+.logo-text { font-size: 24px; font-weight: 700; color:#0b0b0b; }
+.nav-container { display: flex; align-items: center; gap: 30px; }
+.nav-link { text-decoration: none; color: #555; font-weight: 500; }
+.btn-cart { background-color: #0b0b0b; color: #ffffff; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; display: flex; gap: 8px; }
+
+/* --- PÁGINA DO PRODUTO (Background Bege) --- */
+.product-page-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    width: 100%;
+    flex: 1; /* Empurra o footer para baixo */
+}
+
+/* Layout de 2 Colunas */
+.product-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.product-image-col { flex: 1; min-width: 300px; max-width: 600px; }
+.product-info-col { flex: 1; min-width: 300px; display: flex; flex-direction: column; justify-content: flex-start; }
+
+/* Imagem */
+.product-image-wrapper {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.product-image-wrapper img { width: 100%; height: auto; display: block; }
+
+/* Caixa Azul do Alt Text */
+.accessibility-alt-box {
+    background-color: #dbeafe; /* Azul claro */
+    padding: 20px;
+    border-radius: 10px;
+    color: #1e3a8a;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border: 1px solid #bfdbfe;
+}
+
+/* Informações do Produto (Lado Direito) */
+.product-category { color: #888; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 8px; }
+.product-main-title { font-family: serif; font-size: 3.5rem; font-weight: 700; margin-bottom: 15px; line-height: 1.1; }
+.product-main-desc { font-size: 1.1rem; color: #555; margin-bottom: 20px; }
+.product-price-big { color: #1e40af; font-size: 2.5rem; font-weight: 700; margin-bottom: 25px; }
+
+.product-features-list { list-style: none; padding: 0; margin-bottom: 30px; }
+.product-features-list li { position: relative; padding-left: 25px; margin-bottom: 10px; font-size: 1rem; color: #333; }
+.product-features-list li::before { content: '✓'; color: #1e40af; position: absolute; left: 0; font-weight: bold; font-size: 1.2rem; }
+
+.btn-add-to-cart {
+    background-color: #1e40af; /* Azul escuro */
+    color: #ffffff;
+    border: none;
+    padding: 18px 30px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    transition: background 0.3s;
+}
+.btn-add-to-cart:hover { background-color: #172554; }
+
+/* --- SEÇÃO DA TABELA --- */
+.specs-section { margin-top: 80px; }
+.section-title { font-size: 2.5rem; margin-bottom: 30px; font-weight: 700; }
+.serif-title { font-family: serif; }
+
+/* Caixa Azul de Aviso da Tabela */
+.accessibility-table-note {
+    background-color: #dbeafe;
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #1e3a8a;
+    border: 1px solid #bfdbfe;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+.accessibility-table-note code { background: rgba(255,255,255,0.5); padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+
+.table-wrapper {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e5e5;
+    overflow: hidden;
+}
+
+.specs-table { width: 100%; border-collapse: collapse; }
+.specs-table tr { border-bottom: 1px solid #f0f0f0; }
+.specs-table tr:last-child { border-bottom: none; }
+
+/* Coluna 1 (Labels) - Cinza escuro claro */
+.specs-table th {
+    background-color: #f8f8f8; 
+    text-align: left;
+    padding: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    color: #555;
+    width: 30%;
+}
+
+/* Coluna 2 (Valores) */
+.specs-table td {
+    padding: 20px;
+    color: #1a1a1a;
+}
+
+/* --- FOOTER --- */
+.site-footer {
+    background-color: #f5f2eb;
+    padding: 60px 20px;
+    text-align: center;
+    color: #777;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 60px;
+}
+.site-footer strong { color: #333; }
+.footer-sub { margin-top: 10px; font-size: 0.9rem; }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .product-main-title { font-size: 2.5rem; }
+    .product-layout { flex-direction: column; gap: 30px; }
+    .product-image-col { max-width: 100%; }
+}
