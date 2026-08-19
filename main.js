@@ -156,3 +156,77 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    // Elementos
+    const modal = document.getElementById('modal');
+    const status = document.getElementById('status');
+    
+    // Função status
+    const setStatus = msg => status.textContent = `Status: ${msg}`;
+
+    // Abrir/fechar modal
+    document.getElementById('openModal').onclick = () => {
+        modal.classList.add('show');
+        setStatus('Modal aberto');
+        setTimeout(() => document.getElementById('closeModal').focus(), 100);
+    };
+    
+    const closeModal = () => {
+        modal.classList.remove('show');
+        setStatus('Modal fechado');
+        document.getElementById('openModal').focus();
+    };
+    
+    document.getElementById('closeModal').onclick = closeModal;
+    modal.onclick = e => { if (e.target === modal) closeModal(); };
+
+    // Eventos de teclado
+    document.addEventListener('keydown', (e) => {
+        const el = document.activeElement;
+        
+        // Enter - ativar botões e links
+        if (e.key === 'Enter' && (el.tagName === 'BUTTON' || el.tagName === 'A')) {
+            e.preventDefault();
+            el.click();
+            setStatus(`Enter: ${el.textContent.trim()}`);
+        }
+        
+        // ESC - fechar modal
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            closeModal();
+            setStatus('ESC: Modal fechado');
+        }
+        
+        // Space - marcar checkbox
+        if ((e.key === ' ' || e.key === 'Spacebar') && el?.type === 'checkbox') {
+            e.preventDefault();
+            el.checked = !el.checked;
+            setStatus(`${el.id}: ${el.checked ? '✓' : '✗'}`);
+        }
+    });
+
+    // Ações dos botões
+    document.getElementById('actionBtn').onclick = () => {
+        setStatus('Ação executada!');
+        alert('Botão clicado!');
+    };
+    
+    document.getElementById('linkBtn').onclick = (e) => {
+        e.preventDefault();
+        setStatus('Link clicado!');
+        alert('Link clicado!');
+    };
+    
+    document.getElementById('modalAction').onclick = () => {
+        setStatus('Ação no modal!');
+        alert('Ação no modal!');
+        closeModal();
+    };
+
+    // Checkboxes
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+        cb.onchange = () => setStatus(`${cb.id}: ${cb.checked ? '✓' : '✗'}`);
+    });
+
+    setStatus('Pronto! Use Tab, Enter, ESC e Space');
+});

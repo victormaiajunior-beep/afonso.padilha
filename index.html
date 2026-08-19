@@ -242,3 +242,38 @@
     <script src="script.js"></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navegação por Teclado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Navegação por Teclado</h1>
+        
+        <div class="demo">
+            <button id="openModal">Abrir Modal</button>
+            <button id="actionBtn">Ação</button>
+            <a href="#" id="linkBtn">Link</a>
+            
+            <label><input type="checkbox" id="check1"> Aceito</label>
+            <label><input type="checkbox" id="check2"> Notificações</label>
+        </div>
+
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <span id="closeModal">&times;</span>
+                <h2>Modal</h2>
+                <p>Pressione ESC para fechar</p>
+                <button id="modalAction">Ação</button>
+            </div>
+        </div>
+
+        <div id="status">Pronto!</div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
