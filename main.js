@@ -157,76 +157,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 document.addEventListener('DOMContentLoaded', () => {
-    // Elementos
-    const modal = document.getElementById('modal');
-    const status = document.getElementById('status');
-    
-    // Função status
-    const setStatus = msg => status.textContent = `Status: ${msg}`;
+    const box = document.querySelector('.keyboard-nav-box');
+    if (!box) return;
 
-    // Abrir/fechar modal
-    document.getElementById('openModal').onclick = () => {
-        modal.classList.add('show');
-        setStatus('Modal aberto');
-        setTimeout(() => document.getElementById('closeModal').focus(), 100);
-    };
-    
-    const closeModal = () => {
-        modal.classList.remove('show');
-        setStatus('Modal fechado');
-        document.getElementById('openModal').focus();
-    };
-    
-    document.getElementById('closeModal').onclick = closeModal;
-    modal.onclick = e => { if (e.target === modal) closeModal(); };
+    const keys = box.querySelectorAll('.key');
+    if (!keys.length) return;
 
-    // Eventos de teclado
-    document.addEventListener('keydown', (e) => {
-        const el = document.activeElement;
-        
-        // Enter - ativar botões e links
-        if (e.key === 'Enter' && (el.tagName === 'BUTTON' || el.tagName === 'A')) {
-            e.preventDefault();
-            el.click();
-            setStatus(`Enter: ${el.textContent.trim()}`);
+    const first = keys[0];
+    const last = keys[keys.length - 1];
+
+    // 1. FOCUS TRAP (Prender o foco dentro da caixa)
+    box.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault(); last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault(); first.focus();
+            }
         }
-        
-        // ESC - fechar modal
-        if (e.key === 'Escape' && modal.classList.contains('show')) {
-            closeModal();
-            setStatus('ESC: Modal fechado');
-        }
-        
-        // Space - marcar checkbox
-        if ((e.key === ' ' || e.key === 'Spacebar') && el?.type === 'checkbox') {
+
+        // 2. EXECUTAR AÇÃO (Enter ou Espaço na tecla selecionada)
+        if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('key')) {
             e.preventDefault();
-            el.checked = !el.checked;
-            setStatus(`${el.id}: ${el.checked ? '✓' : '✗'}`);
+            const comando = e.target.innerText.trim();
+            
+            switch(comando) {
+                case 'Tab': console.log('Ação: Avançar'); break;
+                case 'Shift+Tab': console.log('Ação: Voltar'); break;
+                case 'Enter': 
+                    alert('Simulação: Botão ativado!');
+                    // Exemplo: document.querySelector('.btn-cart').click();
+                    break;
+                case 'Esc': 
+                    alert('Simulação: Modal fechado.');
+                    document.activeElement.blur(); // Tira o foco da caixa
+                    break;
+                case 'Space': alert('Simulação: Checkbox marcado.'); break;
+            }
+        }
+
+        // 3. TECLA ESC FÍSICA (Sair da caixa)
+        if (e.key === 'Escape') {
+            alert('Simulação: Modal fechado via tecla Esc.');
+            document.activeElement.blur();
         }
     });
-
-    // Ações dos botões
-    document.getElementById('actionBtn').onclick = () => {
-        setStatus('Ação executada!');
-        alert('Botão clicado!');
-    };
-    
-    document.getElementById('linkBtn').onclick = (e) => {
-        e.preventDefault();
-        setStatus('Link clicado!');
-        alert('Link clicado!');
-    };
-    
-    document.getElementById('modalAction').onclick = () => {
-        setStatus('Ação no modal!');
-        alert('Ação no modal!');
-        closeModal();
-    };
-
-    // Checkboxes
-    document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-        cb.onchange = () => setStatus(`${cb.id}: ${cb.checked ? '✓' : '✗'}`);
-    });
-
-    setStatus('Pronto! Use Tab, Enter, ESC e Space');
 });
